@@ -2,9 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.nextone.mapper.UserMapper">
-    <select id="queryAll" resultType="com.nextone.pojo.User">
-    select * from t_user
+<mapper namespace="com.nextone.mapper.AdminUserMapper">
+
+    <select id="queryAll" resultType="com.nextone.pojo.AdminUser">
+    select * from t_adminusers
     </select>
 
 </mapper>

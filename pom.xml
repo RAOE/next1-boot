@@ -56,6 +56,12 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
+        <!--shiro-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
         <!--swagger2-->
         <dependency>
             <groupId>io.springfox</groupId>
