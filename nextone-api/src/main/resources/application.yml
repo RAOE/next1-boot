@@ -1,0 +1,66 @@
+server:
+  port: 80
+  tomcat:
+    uri-encoding: utf-8
+    #tomcat 默认的线程数量默认为 200 可自定义
+    max-threads: 500
+    #tomcat 启动最小线程数量 默认为10 可自定义
+    min-spare-threads: 15
+# Spring配置
+spring:
+  # 模板引擎
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    # 禁用缓存
+    cache: false
+    prefix: classpath:/templates/thymeleaf/
+    servlet:
+      content-type: text/html; charset=utf-8
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles:
+    active: druid
+  # 文件上传
+  servlet:
+    multipart:
+      max-file-size:  50MB
+      max-request-size:  50MB
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+  #Mysql配置
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nextone?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    initialSize: 5
+    # 最小连接池数量
+    minIdle: 10
+    # 最大连接池数量
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    # 配置一个连接在池中最大生存的时间，单位是毫秒
+    maxEvictableIdleTimeMillis: 900000
+    # 配置检测连接是否有效
+    validationQuery: SELECT 1 FROM DUAL
+  mvc:
+    static-path-pattern: /static/**
+#mybatis
+#mappers 多个接口时逗号隔开
+mybatis:
+  type-aliases-package: com.nextone.mapper
+  mapper-locations: classpath:mapper/*.xml
