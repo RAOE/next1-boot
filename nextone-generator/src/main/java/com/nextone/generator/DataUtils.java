@@ -168,7 +168,7 @@ public class DataUtils {
      */
     public static String getValue(String key) {
         String value = null;
-        for (Map<String, String> map : Main.list) {
+        for (Map<String, String> map : GeneratorUtils.list) {
             value = map.get(key);
             if (value != null) {
                 return value;
