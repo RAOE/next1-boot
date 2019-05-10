@@ -1,6 +1,7 @@
 package com.nextone.web.controller;
 
 import com.nextone.utils.ImageCodeUtils;
+import com.nextone.web.annotation.SysLog;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,10 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("")
 public class IndexController {
 
+    @SysLog
     @GetMapping("/index")
     public String index() {
         return "hello nextone~!";
     }
+    @SysLog
     @GetMapping("/")
     public String welcome()
     {
@@ -26,6 +29,7 @@ public class IndexController {
      * @param response
      * @param request
      */
+    @SysLog
     @RequestMapping("/imageCode.do")
     public void sendImageCode(HttpServletResponse response, HttpServletRequest request) {
         ImageCodeUtils.sendImageCode(request.getSession(), response);

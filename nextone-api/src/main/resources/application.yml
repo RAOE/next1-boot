@@ -64,3 +64,6 @@ spring:
 mybatis:
   type-aliases-package: com.nextone.mapper
   mapper-locations: classpath:mapper/*.xml
+# 日志配置
+logging:
+  level:com.nextone: debug

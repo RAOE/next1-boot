@@ -4,6 +4,7 @@ import com.nextone.pojo.AdminUser;
 import com.nextone.service.AdminUserService;
 import com.nextone.utils.ImageCodeUtils;
 import com.nextone.utils.JsonResult;
+import com.nextone.web.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ public class AdminUserController {
     @Autowired
     private AdminUserService adminUserService;
 
+    @SysLog
     @ResponseBody
     @ApiOperation(value = "查询所有用户的信息", notes = "查询所有用户的信息")
     @GetMapping("/queryAll")
@@ -29,7 +31,7 @@ public class AdminUserController {
         }
         return JsonResult.ok(list);
     }
-
+    @SysLog
     @ResponseBody
     @ApiOperation(value = "查询单个用户的详细信息", notes = "根据url的id来查询用户信息")
     @GetMapping("/selectOne/{id}")
@@ -37,12 +39,14 @@ public class AdminUserController {
         return JsonResult.ok(adminUserService.selectOne(id));
     }
 
+    @SysLog
     @ApiOperation(value = "跳转到登陆页面")
     @GetMapping("/login")
     public ModelAndView login() {
         return new ModelAndView("login");
     }
 
+    @SysLog
     @ResponseBody
     @PostMapping("/loginSubmit")
     public JsonResult loginsubmit(HttpServletRequest request, String username, String password, String verifyCode) {
