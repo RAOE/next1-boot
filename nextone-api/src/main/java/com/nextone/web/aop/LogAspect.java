@@ -1,7 +1,6 @@
 package com.nextone.web.aop;
-
-
 import com.nextone.pojo.AdminUser;
+import com.nextone.utils.IpUtils;
 import com.nextone.utils.JsonUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -39,6 +38,7 @@ public class LogAspect {
             username = user.getUsername();
         }
         Object[] args = joinPoint.getArgs();
+        String ip = IpUtils.getRemoteIP(request);
         for (int i = 0; i < args.length; i++) {
             if (args[i] instanceof ServletRequest) {
                 args[i] = "request对象";
@@ -50,7 +50,7 @@ public class LogAspect {
                 args[i] = "BindingResult对象";
             }
         }
-        logger.info("用户id：{}，方法签名：{}，方法参数：{}", username, joinPoint.getSignature(), JsonUtils.toJson(args));
+        logger.info("用户id：{}，方法签名：{}，方法参数：{} ip地址:{}", username, joinPoint.getSignature(), JsonUtils.toJson(args), ip);
         return ob;
     }
 

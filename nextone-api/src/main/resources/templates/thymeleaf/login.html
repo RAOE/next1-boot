@@ -48,8 +48,8 @@
             <form id="myform" method="post">
                 <h4 class="no-margins">登录：</h4>
                 <p class="m-t-md">登录到平台</p>
-                <input type="text" name="username" class="form-control uname"
-                       placeholder="用户名"/> <input type="password" name="password"
+                <input type="text" name="username" id="username" class="form-control uname"
+                       placeholder="用户名"/> <input type="password" name="password" id="password"
                                                   class="form-control pword m-b" placeholder="密码"/>
                 <div>
                     <input
@@ -61,7 +61,6 @@
                         id="changeVerifImageRegister" onclick="changeCode()"><br/>换一张</a>
 						</span>
                 </div>
-                <a href="#">忘记密码了？</a>
                 <button class="btn btn-success btn-block" type="button"
                         onclick="loginSubmit()">登录
                 </button>
@@ -74,5 +73,24 @@
     </div>
 </div>
 </body>
-<script th:src="@{/static/js/jquery-2.1.1.min.js}"></script>
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script>
+    function loginSubmit() {
+        console.log("login~@!");
+        var param =
+            {
+                'username': $("#username").val(),
+                'password': $("#password").val(),
+                'verifyCodeImage': $("#user_input_verifyCode").val()
+            }
+            console.log(param);
+        $.ajax({
+            url: "",
+            method: "post",
+            success: function (resp) {
+                console.log(resp);
+            }
+        })
+    }
+</script>
 </html>
