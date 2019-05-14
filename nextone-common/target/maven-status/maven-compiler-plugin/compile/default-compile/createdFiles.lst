@@ -1,6 +1,8 @@
 com/nextone/utils/support/CharsetKit.class
+com/nextone/utils/JsonUtils.class
 com/nextone/utils/JsonResult.class
 com/nextone/utils/ImageCodeUtils$ImageCode.class
+com/nextone/utils/IpUtils.class
 com/nextone/utils/CommonUtils.class
 com/nextone/utils/StringUtils.class
 com/nextone/utils/ImageCodeUtils.class
