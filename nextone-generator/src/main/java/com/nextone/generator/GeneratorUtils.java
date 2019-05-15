@@ -97,7 +97,6 @@ public class GeneratorUtils {
         try {
             cfg.setDefaultEncoding("utf-8");
             cfg.setDirectoryForTemplateLoading(new File(GeneratorUtils.class.getResource("/template").getFile().toString()));
-
         } catch (IOException e) {
             e.printStackTrace();
         }
