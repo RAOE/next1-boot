@@ -56,7 +56,8 @@ public class AuditLogConsumer implements Runnable {
             while (size < batchSize) {
                 AuditLog auditLog = auditLogQueue.poll();//从队列中取出一个
                 if (auditLog == null) {
-                    continue;
+                    //如果当前的队列中的数据为空，则退出
+                    break;
                 }
                 auditLogList.add(auditLog);
                 size++;

@@ -46,4 +46,9 @@ public class AdminUserServiceImpl implements AdminUserService {
         }
         return null;
     }
+
+    @Override
+    public AdminUser findByUserName(String currentUsername) {
+        return null;
+    }
 }

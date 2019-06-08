@@ -81,14 +81,21 @@
             {
                 'username': $("#username").val(),
                 'password': $("#password").val(),
-                'verifyCodeImage': $("#user_input_verifyCode").val()
+                'verifyCode': $("#user_input_verifyCode").val()
             }
-            console.log(param);
         $.ajax({
-            url: "",
+            url: "../adminUser/loginSubmit",
             method: "post",
+            data: param,
+            dataType: 'json',
             success: function (resp) {
-                console.log(resp);
+                if (resp.status == 200) {
+                    console.log("登陆成功～！");
+                } else if (resp.status == 500) {
+                    alert(resp.msg);
+                    changeCode();
+                    console.log(resp);
+                }
             }
         })
     }

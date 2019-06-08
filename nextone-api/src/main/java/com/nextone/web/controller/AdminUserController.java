@@ -6,6 +6,9 @@ import com.nextone.utils.ImageCodeUtils;
 import com.nextone.utils.JsonResult;
 import com.nextone.web.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -58,13 +61,19 @@ public class AdminUserController {
         if (adminUser == null) {
             return JsonResult.errorMsg("账号密码错误");
         }
+
         // 登陆成功,登陆成功之后更新用户的登陆时间
 //        UsernamePasswordToken token = new UsernamePasswordToken(adminUser.getUsername(), adminUser.getPassword(), false);
 //        Subject currentUser = SecurityUtils.getSubject();
 //        currentUser.login(token);
-
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(adminUser.getUsername(), adminUser.getPassword());
+        try {
+            subject.login(token);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return JsonResult.errorMsg("账号密码错误!");
+        }
         return JsonResult.ok();
     }
-
-
 }

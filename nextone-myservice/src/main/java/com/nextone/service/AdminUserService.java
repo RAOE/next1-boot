@@ -26,4 +26,11 @@ public interface AdminUserService {
      * @return
      */
     AdminUser login(String username, String password);
+
+    /**
+     * 根据名称查询出用户
+     * @param currentUsername
+     * @return
+     */
+    AdminUser findByUserName(String currentUsername);
 }

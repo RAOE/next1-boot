@@ -38,12 +38,12 @@ public class GeneratorUtils {
     //需要配置MyMapper包的路径
     public static String myMapperPath = "com//Generator//utils";// myMapper路径
 
-    //优化前	代码生成完成 ，耗时：575毫秒
-    public static void main(String[] args) {
-        GeneratorUtils.init();
-        GeneratorUtils.generate();
-
-    }
+//    //优化前	代码生成完成 ，耗时：575毫秒
+//    public static void main(String[] args) {
+//        GeneratorUtils.init();
+//        GeneratorUtils.generate();
+//
+//    }
 
     /**
      * 初始化扫描启动类 主要是从generatorCRUD获取相关的配置信息到map中
