@@ -25,7 +25,6 @@ public class ShiroConfiguration {
             MyShiroRealm myShiroRealm = new MyShiroRealm();
             return myShiroRealm;
         }
-
         //权限管理，配置主要是Realm的管理认证
         @Bean
         public SecurityManager securityManager() {
@@ -33,7 +32,6 @@ public class ShiroConfiguration {
             securityManager.setRealm(myShiroRealm());
             return securityManager;
         }
-
         //Filter工厂，设置对应的过滤条件和跳转条件
         @Bean
         public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
@@ -59,7 +57,6 @@ public class ShiroConfiguration {
             shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
             return shiroFilterFactoryBean;
         }
-
         //加入注解的使用，不加入这个注解不生效
         @Bean
         public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
