@@ -41,14 +41,13 @@ public class ShiroConfiguration {
             shiroFilterFactoryBean.setSecurityManager(securityManager);
             Map<String,String> map = new HashMap<String, String>();
             //登出
-            map.put("/logout","logout");
-
+            map.put("/adminUser/logout","logout");
             //静态资源不拦截
             map.put("/static/**","anon");
             //不拦截验证码
             map.put("/imageCode.do","anon");
             //不拦截登陆请求
-            map.put("/adminUser/loginSubmit.do","anon");
+            map.put("/adminUser/loginSubmit","anon");
             //对所有用户认证
             map.put("/**","authc");
             //登录
