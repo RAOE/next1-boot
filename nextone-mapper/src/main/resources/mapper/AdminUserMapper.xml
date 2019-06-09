@@ -7,5 +7,10 @@
     <select id="queryAll" resultType="com.nextone.pojo.AdminUser">
     select * from t_adminusers
     </select>
+    <select id="findByUserName" parameterType="String" resultType="com.nextone.pojo.AdminUser">
+        select * from t_adminusers
+        where username =
+        #{username}
+    </select>
 
 </mapper>

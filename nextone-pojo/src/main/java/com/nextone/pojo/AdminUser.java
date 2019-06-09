@@ -17,11 +17,9 @@ public class AdminUser {
     private String password;
     private String salt;
     @Column(name = "isEnable")
-    private Boolean isEnable;
+    private Integer isEnable;
     @Column(name = "last_login")
     private Date lastLogin;
-
-
     public Long getId() {
         return id;
     }
@@ -54,12 +52,13 @@ public class AdminUser {
         this.salt = salt;
     }
 
-    public Boolean getEnable() {
+
+    public Integer getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(Boolean enable) {
-        isEnable = enable;
+    public void setIsEnable(Integer isEnable) {
+        this.isEnable = isEnable;
     }
 
     public Date getLastLogin() {

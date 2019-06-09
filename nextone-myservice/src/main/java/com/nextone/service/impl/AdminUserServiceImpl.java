@@ -6,6 +6,7 @@ import com.nextone.service.AdminUserService;
 import com.nextone.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -49,6 +50,8 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Override
     public AdminUser findByUserName(String currentUsername) {
-        return null;
+
+
+        return  adminUserMapper.findByUserName(currentUsername);
     }
 }

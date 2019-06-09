@@ -20,7 +20,7 @@ public class Permission {
     @Column(name="description")
     private String description;
     @Column(name="isDeleted")
-    private Boolean isDeleted;
+    private Integer isDeleted;
 
     public Long getId() {
         return id;
@@ -46,12 +46,12 @@ public class Permission {
         this.description = description;
     }
 
-    public Boolean getDeleted() {
+    public Integer getIsDeleted() {
         return isDeleted;
     }
 
-    public void setDeleted(Boolean deleted) {
-        isDeleted = deleted;
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     @Override

@@ -10,4 +10,5 @@ public interface AdminUserMapper extends Mapper<AdminUser>, MySqlMapper<AdminUse
 
     List<AdminUser> queryAll();
 
+    AdminUser findByUserName(String currentUsername);
 }

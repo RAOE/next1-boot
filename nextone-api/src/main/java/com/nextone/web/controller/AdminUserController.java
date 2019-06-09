@@ -46,7 +46,7 @@ public class AdminUserController {
     @ApiOperation(value = "跳转到登陆页面")
     @GetMapping("/login")
     public ModelAndView login() {
-        return new ModelAndView("login");
+        return new ModelAndView("/index/login");
     }
 
     @SysLog
