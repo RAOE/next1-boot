@@ -17,6 +17,7 @@ spring:
     prefix: classpath:/templates/thymeleaf/
     servlet:
       content-type: text/html; charset=utf-8
+    enabled: true
   # 资源信息
   messages:
     # 国际化资源文件路径
@@ -36,6 +37,7 @@ spring:
     restart:
       # 热部署开关
       enabled: true
+
   #Mysql配置
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
@@ -67,3 +69,4 @@ mybatis:
 # 日志配置
 logging:
   level:com.nextone: debug
+
