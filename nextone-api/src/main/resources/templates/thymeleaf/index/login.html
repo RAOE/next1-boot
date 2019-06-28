@@ -1,114 +1,58 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>后台登录</title>
-		<link rel="stylesheet" type="text/css" href="../../static/admin/layui/css/layui.css" />
-		<link rel="stylesheet" type="text/css" href="../../static/admin/css/login.css" />
-	</head>
-	<script type="text/javascript" >
-
-		function changeCode() {
-			//点击刷新验证码
-			var img = document.getElementsByTagName("img")[0];
-			img.src = "../imageCode.do?" + new Date().getTime();
-		}
-	</script>
-	<body>
-		<div class="m-login-bg">
-			<div class="m-login">
-				<h3>后台系统登录</h3>
-				<div class="m-login-warp">
-					<form class="layui-form">
-						<div class="layui-form-item">
-							<input type="text" name="username"  id="username" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
-						</div>
-						<div class="layui-form-item">
-							<input type="text" name="password"  id="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
-						</div>
-						<div class="layui-form-item">
-							<div class="layui-inline">
-								<input type="text" name="user_input_verifyCode" id="user_input_verifyCode" required lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
-							</div>
-							<div class="layui-inline">
-								<img class="verifyImg" onclick="changeCode()"  th:src="@{/imageCode.do}"/>
-							</div>
-						</div>
-						<div class="layui-form-item m-login-btn">
-							<div class="layui-inline">
-								<button class="layui-btn layui-btn-normal"  onclick="loginSubmit()">登录</button>
-							</div>
-							<div class="layui-inline">
-								<button type="reset" class="layui-btn layui-btn-primary">取消</button>
-							</div>
-						</div>
-					</form>
-				</div>
-				<p class="copyright">Copyright 2015-2016 by XIAODU</p>
-			</div>
-		</div>
-		<script src="../../static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-		<script src="http://code.jquery.com/jquery-2.2.4.js"
-				integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-				crossorigin="anonymous"></script>
-
-		<script type="text/javascript">
-			//登陆请求
-			function loginSubmit() {
-				console.log("login~@!");
-				var param =
-						{
-							'username': $("#username").val(),
-							'password': $("#password").val(),
-							'verifyCode': $("#user_input_verifyCode").val()
-						}
-				$.ajax({
-					url: "../adminUser/loginSubmit",
-					method: "post",
-					data: param,
-					dataType: 'json',
-					success: function (resp) {
-						if (resp.status == 200) {
-							console.log("登陆成功～！");
-							window.location.href="../index";
-
-						} else if (resp.status == 500) {
-							alert(resp.msg);
-							changeCode();
-							console.log(resp);
-						}
-					}
-				})
-			}
-		</script>
-		<script>
-			layui.use(['form', 'layedit', 'laydate'], function() {
-				var form = layui.form(),
-					layer = layui.layer;
-				//自定义验证规则
-				form.verify({
-					title: function(value) {
-						if(value.length < 5) {
-							return '标题至少得5个字符啊';
-						}
-					},
-					password: [/(.+){6,12}$/, '密码必须6到12位'],
-					verity: [/(.+){6}$/, '验证码必须是6位'],
-					
-				});
-				//监听提交
-				form.on('submit(login)', function(data) {
-					layer.alert(JSON.stringify(data.field), {
-						title: '最终的提交信息'
-					})
-					return false;
-				});
-
-			});
-		</script>
+<html lang="en">
 
 
-	</body>
+<!-- Mirrored from www.zi-han.net/theme/hplus/login_v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:49 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
+    <title>后台管理系统 - 登录</title>
+    <meta name="keywords" content="后台管理系统">
+    <meta name="description" content="后台管理系统">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="../static/css/animate.min.css" rel="stylesheet">
+    <link href="../static/css/style.min.css" rel="stylesheet">
+    <link href="../static/css/login.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script>
+        if(window.top!==window.self){window.top.location=window.location};
+    </script>
+
+</head>
+
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="signin-info">
+                    <div class="logopanel m-b">
+                    </div>
+                    <div class="m-b"></div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <form method="post" action="http://www.zi-han.net/theme/hplus/index.html">
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">登录到后台管理系统</p>
+                    <input type="text" class="form-control uname" placeholder="用户名" />
+                    <input type="password" class="form-control pword m-b" placeholder="密码" />
+                    <a href="#">忘记密码了？</a>
+                    <button class="btn btn-success btn-block">登录</button>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2019 All Rights Reserved. H+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/login_v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:52 GMT -->
 </html>

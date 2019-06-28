@@ -47,7 +47,7 @@ public class ShiroConfiguration {
             //不拦截登陆请求
             map.put("/adminUser/loginSubmit","anon");
             //对所有用户认证
-            map.put("/**","authc");
+            map.put("/**","anon");
             //登录
             shiroFilterFactoryBean.setLoginUrl("/adminUser/login");
             //首页

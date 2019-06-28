@@ -54,20 +54,20 @@ public class LogAspect {
             }
         }
         //控制台输出
-        // logger.info("用户id：{}，方法签名：{}，方法参数：{} ip地址:{}", username, joinPoint.getSignature(), JsonUtils.toJson(args), ip);
+         logger.info("用户id：{}，方法签名：{}，方法参数：{} ip地址:{}", username, joinPoint.getSignature(), JsonUtils.toJson(args), ip);
         //*========数据库日志=========*//
-        AuditLog log = new AuditLog();
-        log.setId(Sid.nextShort());
-        log.setDescription(joinPoint.getSignature().toString());
-        log.setMethod(joinPoint.getSignature().toString());
-        log.setParams(JsonUtils.toJson(args));
-        log.setType("0");
-        log.setRequestIp(ip);
-        log.setExceptionCode( null);
-        log.setExceptionDetail( null);
-        log.setCreateDate(new Date());
+//        AuditLog log = new AuditLog();
+//        log.setId(Sid.nextShort());
+//        log.setDescription(joinPoint.getSignature().toString());
+//        log.setMethod(joinPoint.getSignature().toString());
+//        log.setParams(JsonUtils.toJson(args));
+//        log.setType("0");
+//        log.setRequestIp(ip);
+//        log.setExceptionCode( null);
+//        log.setExceptionDetail( null);
+//        log.setCreateDate(new Date());
         //保存数据库
-        auditLogQueue.add(log);
+//        auditLogQueue.add(log);
         //拿到请求中的所有参数args
         return ob;
     }
