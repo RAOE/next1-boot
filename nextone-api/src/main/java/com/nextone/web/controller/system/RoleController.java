@@ -1,6 +1,6 @@
-package com.nextone.web.controller;
+package com.nextone.web.controller.system;
 
-import com.nextone.service.PermissionService;
+import com.nextone.service.RoleService;
 import com.nextone.utils.JsonResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @description
  **/
 @RestController
-@RequestMapping("/permission")
-public class PermissionController {
+@RequestMapping("/role")
+public class RoleController {
 
     @Autowired
-    private PermissionService permissionService;
+    private RoleService roleService;
 
-    @ApiOperation(value = "查询所有的权限能力")
+    @ApiOperation(value = "查询所有的角色")
     @RequestMapping("/queryAll")
     public JsonResult queryAll() {
-        return JsonResult.ok(permissionService.queryAll());
+        return JsonResult.ok(roleService.queryAll());
     }
+
 }

@@ -220,7 +220,8 @@ public class ImageCodeUtils {
 		}
 	}
 
-	private static class ImageCode {
+
+    private static class ImageCode {
 
 		public BufferedImage image;
 		public String code;

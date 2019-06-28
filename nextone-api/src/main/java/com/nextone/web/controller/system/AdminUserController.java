@@ -1,4 +1,4 @@
-package com.nextone.web.controller;
+package com.nextone.web.controller.system;
 
 import com.nextone.pojo.AdminUser;
 import com.nextone.service.AdminUserService;
@@ -42,17 +42,11 @@ public class AdminUserController {
         return JsonResult.ok(adminUserService.selectOne(id));
     }
 
-    @SysLog
-    @ApiOperation(value = "跳转到登陆页面")
-    @GetMapping("/login")
-    public ModelAndView login() {
-        return new ModelAndView("/index/login");
-    }
 
     @SysLog
     @ResponseBody
     @PostMapping("/loginSubmit")
-    public JsonResult loginsubmit(HttpServletRequest request, String username, String password, String verifyCode) {
+    public JsonResult loginSubmit(HttpServletRequest request, String username, String password, String verifyCode) {
 
         if (!ImageCodeUtils.checkImageCode(request.getSession(), verifyCode)) {
             return JsonResult.errorMsg("验证码错误");
