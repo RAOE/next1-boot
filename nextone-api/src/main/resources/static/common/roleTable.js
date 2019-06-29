@@ -40,13 +40,13 @@ var selectAll = function () {
         showToggle: true, // 名片格式
         cardView: true, // 设置为True时显示名片（card）布局
         showColumns: true, // 显示隐藏列
-        showRefresh: false, // 显示刷新按钮
+        showRefresh: true, // 显示刷新按钮
         // singleSelect: true,//复选框只能选择一条记录
-        search: false, // 是否显示搜索框
+        search: true, // 是否显示搜索框
         searchOnEnterKey: true, // 设置为 true时，按回车触发搜索方法，否则自动触发搜索方法
-        // clickToSelect: true,//点击行即可选中单选/复选框
+        clickToSelect: true,//点击行即可选中单选/复选框
         queryParams: queryParams, // 参数
-        // showFullscreen:true, //全屏按钮
+        showFullscreen:true, //全屏按钮
         // queryParamsType: "limit", //查询参数组织方式
         sidePagination: "server", // 服务端处理分页
         silent: true, // 刷新事件必须设置
@@ -184,30 +184,5 @@ var formatTableUnit = function (value, row, index) {
     };
 };
 
-// 格式化时间工具类
-function Format(datetime, fmt) {
-    if (parseInt(datetime) == datetime) {
-        if (datetime.length == 10) {
-            datetime = parseInt(datetime) * 1000;
-        } else if (datetime.length == 13) {
-            datetime = parseInt(datetime);
-        }
-    }
-    datetime = new Date(datetime);
-    var o = {
-        "M+": datetime.getMonth() + 1, // 月份
-        "d+": datetime.getDate(), // 日
-        "h+": datetime.getHours(), // 小时
-        "m+": datetime.getMinutes(), // 分
-        "s+": datetime.getSeconds(), // 秒
-        "q+": Math.floor((datetime.getMonth() + 3) / 3), // 季度
-        "S": datetime.getMilliseconds() // 毫秒
-    };
-    if (/(y+)/.test(fmt))
-        fmt = fmt.replace(RegExp.$1, (datetime.getFullYear() + "").substr(4 - RegExp.$1.length));
-    for (var k in o)
-        if (new RegExp("(" + k + ")").test(fmt))
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-    return fmt;
-}
+
 
