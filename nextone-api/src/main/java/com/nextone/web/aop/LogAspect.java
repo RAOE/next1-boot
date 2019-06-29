@@ -1,14 +1,12 @@
 package com.nextone.web.aop;
 import com.nextone.utils.IpUtils;
 import com.nextone.utils.JsonUtils;
-import com.nextone.web.audit.AuditLog;
 import com.nextone.web.audit.AuditLogQueue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.BindingResult;
@@ -39,7 +37,7 @@ public class LogAspect {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession();
         String username = null;
-        String ip = IpUtils.getRemoteIP(request);
+        String ip = IpUtils.getIpAddr(request);
 
         Object[] args = joinPoint.getArgs();
         for (int i = 0; i < args.length; i++) {

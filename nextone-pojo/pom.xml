@@ -16,6 +16,12 @@
           <artifactId>nextone-common</artifactId>
           <version>1.0-SNAPSHOT</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/com.github.dblock/oshi-core -->
+      <dependency>
+          <groupId>com.github.dblock</groupId>
+          <artifactId>oshi-core</artifactId>
+          <version>3.4.0</version>
+      </dependency>
 
   </dependencies>
 

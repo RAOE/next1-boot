@@ -20,6 +20,9 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.8" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.8" level="project" />
+    <orderEntry type="library" name="Maven: com.github.oshi:oshi-core:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: net.java.dev.jna:jna-platform:4.5.2" level="project" />
+    <orderEntry type="library" name="Maven: net.java.dev.jna:jna:4.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-spring:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-lang:1.4.0" level="project" />

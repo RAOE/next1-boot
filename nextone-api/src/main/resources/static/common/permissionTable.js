@@ -115,9 +115,8 @@ var selectAll = function () {
                 align: 'center',
                 width: '5%',
                 formatter: function (value, row, index) {
-                    var index1 = index + 1;
-                    var id = '<span title="ID:' + row.orgId + '">' + "启用" + '</span>';
-                    return id;
+                    var status='<span class="badge badge-primary" >' + '启用' + '</span>';
+                    return status;
                 }
             }, {
                 title: '操作',

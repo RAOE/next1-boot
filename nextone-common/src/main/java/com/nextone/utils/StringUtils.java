@@ -1,5 +1,6 @@
 package com.nextone.utils;
 
+
 import com.nextone.utils.support.StrFormatter;
 
 import java.util.Collection;
