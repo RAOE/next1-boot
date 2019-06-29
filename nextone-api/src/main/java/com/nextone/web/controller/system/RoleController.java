@@ -27,8 +27,9 @@ public class RoleController {
      */
     @ApiOperation(value = "查询所有的角色")
     @RequestMapping("/queryAll")
-    public JsonResult queryAll() {
-        return JsonResult.ok(roleService.queryAll());
+    public JsonResult queryAll(Integer page,Integer pageSize) {
+
+        return JsonResult.ok(roleService.queryAll(page,pageSize,null));
     }
 
     /**

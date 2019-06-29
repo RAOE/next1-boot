@@ -1,11 +1,11 @@
 <!DOCTYPE html><html>
 <head>
-    <title>角色权限管理</title>
+    <title>菜单管理</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>角色权限分配</title>
-    <meta name="keywords" content="角色权限管理页面">
-    <meta name="description" content="角色权限管理页面">
+    <title>菜单分配</title>
+    <meta name="keywords" content="菜单管理页面">
+    <meta name="description" content="菜单管理页面">
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="../static/icon/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../static/icon/favicon.ico" type="image/x-icon"/>
@@ -24,7 +24,7 @@
 <div class="wrapper wrapper-content">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>角色基本信息表</h5>
+            <h5>菜单基本信息表</h5>
             <div class="ibox-tools">
                 <a class="collapse-link"> <i class="fa fa-chevron-up"></i>
                 </a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
@@ -38,54 +38,20 @@
             <div class="row row-lg">
                 <div class="example">
                     <table id="allBlog" data-mobile-responsive="true">
+
                     </table>
                     <div id="toolbar">
                         <a class="btn btn-success" id="add">
-                            <i class="fa fa-plus"></i> 新增角色
+                            <i class="fa fa-plus"></i> 新增权限
                         </a>
                         <a class="btn btn-info" id="edit">
-                            <i class="fa fa-plus"></i> 编辑角色
+                            <i class="fa fa-plus"></i> 编辑权限
                         </a>
                         <a class="btn btn-danger" id="delete">
-                            <i class="fa fa-plus"></i> 删除角色
+                            <i class="fa fa-plus"></i> 删除权限
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div id="modal-form" class="modal fade" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="ibox-content">
-                <form class="form-horizontal">
-                    <input id="status" type="hidden"/>
-                    <input id="id" type="hidden"/>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">角色名称</label>
-                        <div class="col-sm-8">
-                            <input name="name" type="text" id="name" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">角色描述</label>
-                        <div class="col-sm-8">
-                            <input name="description" type="text" id="description" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group checkbox checkbox-info">
-                        <label class="col-sm-2 control-label">权限能力</label>
-                        <div class="checkbox" id="chbx">
-
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <div class="col-sm-4 col-sm-offset-2">
-                            <button class="btn btn-primary" type="button" id="submit">提交内容</button>
-                            <button class="btn btn-white" type="cancel" data-dismiss="modal">取消</button>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
@@ -109,7 +75,7 @@
 <script src="../static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="../static/js/plugins/layer-v3.1.1/layer/layer.js"></script>
 <!-- 自定义js -->
-<script src="../static/common/roleTable.js"></script>
+<script src="../static/common/permissionTable.js"></script>
 <script src="../static/utils/utils.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
