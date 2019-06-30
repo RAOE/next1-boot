@@ -35,6 +35,19 @@ public class PermissionController {
     }
 
     /**
+     * 跳转到添加
+     *
+     * @return
+     */
+    @SysLog
+    @ApiOperation(value = "跳转到菜单列表",notes = "跳转到菜单列表")
+    @RequestMapping("/add")
+    public ModelAndView add() {
+        return new ModelAndView("/system/permission/add");
+    }
+
+
+    /**
      * 分页 查询权限能力
      * @param page
      * @param pageSize

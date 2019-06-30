@@ -68,7 +68,7 @@ public class AdminUserController {
     @ApiOperation(value = "个人资料展示")
     @RequestMapping("/profile")
     public ModelAndView profile() {
-        return new ModelAndView("/index/profile");
+        return new ModelAndView("/system/admin/profile");
     }
 
     @SysLog

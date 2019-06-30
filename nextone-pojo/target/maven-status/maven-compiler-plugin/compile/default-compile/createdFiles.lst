@@ -1,0 +1,9 @@
+com/nextone/pojo/server/Cpu.class
+com/nextone/pojo/server/SysFile.class
+com/nextone/pojo/server/Mem.class
+com/nextone/pojo/server/Sys.class
+com/nextone/pojo/AdminUser.class
+com/nextone/pojo/server/Jvm.class
+com/nextone/pojo/Permission.class
+com/nextone/pojo/server/Server.class
+com/nextone/pojo/Role.class
