@@ -2,6 +2,7 @@ package com.nextone.web.controller.system;
 
 import com.nextone.service.RoleService;
 import com.nextone.utils.JsonResult;
+import com.nextone.web.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,8 @@ public class RoleController {
      * 查询所有角色
      * @return
      */
-    @ApiOperation(value = "查询所有的角色")
+    @SysLog
+    @ApiOperation(value = "查询所有的角色",notes = "查询所有的角色")
     @RequestMapping("/queryAll")
     public JsonResult queryAll(Integer page,Integer pageSize) {
 
@@ -36,6 +38,8 @@ public class RoleController {
      * 权限列表
      * @return
      */
+    @SysLog
+    @ApiOperation(value = "跳转到权限列表",notes = "跳转到权限列表")
     @RequestMapping("/list")
     public ModelAndView list()
     {

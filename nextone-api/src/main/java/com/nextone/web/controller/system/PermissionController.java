@@ -2,6 +2,7 @@ package com.nextone.web.controller.system;
 
 import com.nextone.service.PermissionService;
 import com.nextone.utils.JsonResult;
+import com.nextone.web.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,8 @@ public class PermissionController {
      *
      * @return
      */
+    @SysLog
+    @ApiOperation(value = "跳转到菜单列表",notes = "跳转到菜单列表")
     @RequestMapping("/list")
     public ModelAndView list() {
         return new ModelAndView("/system/permission/list");
@@ -37,7 +40,8 @@ public class PermissionController {
      * @param pageSize
      * @return
      */
-    @ApiOperation(value = "查询所有的权限能力")
+    @SysLog
+    @ApiOperation(value = "查询所有的权限能力",notes = "查询所有的权限能力")
     @RequestMapping("/queryAll")
     public JsonResult queryAll(Integer page, Integer pageSize) {
         return JsonResult.ok( permissionService.queryAll(page, pageSize, null));
