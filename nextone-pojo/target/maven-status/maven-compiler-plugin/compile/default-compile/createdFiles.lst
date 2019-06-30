@@ -1,4 +1,5 @@
 com/nextone/pojo/server/Cpu.class
+com/nextone/pojo/SystemLog.class
 com/nextone/pojo/server/SysFile.class
 com/nextone/pojo/server/Mem.class
 com/nextone/pojo/server/Sys.class

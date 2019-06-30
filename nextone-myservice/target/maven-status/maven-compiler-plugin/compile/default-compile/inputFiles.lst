@@ -3,4 +3,7 @@
 /Users/xuyuanfeng/Downloads/jiaoshoujia/next1-boot/nextone-myservice/src/main/java/com/nextone/service/PermissionService.java
 /Users/xuyuanfeng/Downloads/jiaoshoujia/next1-boot/nextone-myservice/src/main/java/com/nextone/service/impl/AdminUserServiceImpl.java
 /Users/xuyuanfeng/Downloads/jiaoshoujia/next1-boot/nextone-myservice/src/main/java/com/nextone/service/AdminUserService.java
+/Users/xuyuanfeng/Downloads/jiaoshoujia/next1-boot/nextone-myservice/src/main/java/com/nextone/service/BaseService.java
+/Users/xuyuanfeng/Downloads/jiaoshoujia/next1-boot/nextone-myservice/src/main/java/com/nextone/service/SystemLogService.java
+/Users/xuyuanfeng/Downloads/jiaoshoujia/next1-boot/nextone-myservice/src/main/java/com/nextone/service/impl/BaseServiceImp.java
 /Users/xuyuanfeng/Downloads/jiaoshoujia/next1-boot/nextone-myservice/src/main/java/com/nextone/service/impl/PermissionServiceImpl.java

@@ -1,24 +1,14 @@
 package com.nextone.service;
 
+import com.nextone.framework.service.BaseService;
 import com.nextone.pojo.AdminUser;
 import com.nextone.utils.PageResult;
 
 import java.util.List;
 import java.util.Map;
 
-public interface AdminUserService {
+public interface AdminUserService  extends BaseService<AdminUser> {
 
-    /**
-     * 查询所有的用户列表
-     * @return
-     */
-    List<AdminUser> queryAll();
-
-    /**
-     * 分页 查询所有的用户列表
-     * @return
-     */
-    PageResult queryAll(Integer page, Integer pageSize, Map map);
 
     /**
      * 查询单个用户信息
@@ -41,6 +31,10 @@ public interface AdminUserService {
      * @return
      */
     AdminUser findByUserName(String currentUsername);
+
+
+
+
 
 
 }

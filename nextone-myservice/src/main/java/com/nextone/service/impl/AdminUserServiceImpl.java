@@ -2,6 +2,7 @@ package com.nextone.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.nextone.framework.serviceImp.BaseServiceImpl;
 import com.nextone.mapper.AdminUserMapper;
 import com.nextone.pojo.AdminUser;
 import com.nextone.pojo.Permission;
@@ -22,7 +23,7 @@ import java.util.Map;
  * @description
  **/
 @Service
-public class AdminUserServiceImpl implements AdminUserService {
+public class AdminUserServiceImpl extends BaseServiceImpl<AdminUser> implements AdminUserService {
 
     @Autowired
     private AdminUserMapper adminUserMapper;

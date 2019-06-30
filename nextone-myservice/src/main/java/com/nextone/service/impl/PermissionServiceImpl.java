@@ -2,6 +2,7 @@ package com.nextone.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.nextone.framework.serviceImp.BaseServiceImpl;
 import com.nextone.mapper.PermissionMapper;
 import com.nextone.pojo.Permission;
 import com.nextone.service.PermissionService;
@@ -19,7 +20,7 @@ import java.util.Map;
  * @description 描述
  **/
 @Service
-public class PermissionServiceImpl implements PermissionService {
+public class PermissionServiceImpl extends BaseServiceImpl<Permission> implements PermissionService {
 
     @Autowired
     private PermissionMapper permissionMapper;

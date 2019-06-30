@@ -2,6 +2,7 @@ package com.nextone.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.nextone.framework.serviceImp.BaseServiceImpl;
 import com.nextone.mapper.RoleMapper;
 import com.nextone.pojo.AdminUser;
 import com.nextone.pojo.Role;
@@ -21,7 +22,7 @@ import java.util.Set;
  * @description
  **/
 @Service
-public class RoleSerivceImpl implements RoleService {
+public class RoleSerivceImpl extends BaseServiceImpl<Role> implements RoleService {
 
     @Autowired
     private RoleMapper roleMapper;
