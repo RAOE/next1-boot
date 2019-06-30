@@ -38,20 +38,22 @@ public class ShiroConfiguration {
             ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
             shiroFilterFactoryBean.setSecurityManager(securityManager);
             Map<String,String> map = new HashMap<String, String>();
-            //登出
-            map.put("/adminUser/logout","logout");
-            //静态资源不拦截
+            //不拦截登出
+            map.put("/logout","anon");
+            //不拦截静态资源
             map.put("/static/**","anon");
             //不拦截验证码
-            map.put("/imageCode.do","anon");
+            map.put("/imageCode","anon");
+            //不拦截跳转登陆
+            map.put("/login","anon");
             //不拦截登陆请求
             map.put("/adminUser/loginSubmit","anon");
-            //对所有用户认证
-            map.put("/**","anon");
+            //对所有请求认证 authc
+            map.put("/**","authc");
             //登录
-            shiroFilterFactoryBean.setLoginUrl("/adminUser/login");
+            shiroFilterFactoryBean.setLoginUrl("/login");
             //首页
-            shiroFilterFactoryBean.setSuccessUrl("/index");
+            shiroFilterFactoryBean.setSuccessUrl("/");
             //错误页面，认证不通过跳转
             shiroFilterFactoryBean.setUnauthorizedUrl("/error");
             shiroFilterFactoryBean.setFilterChainDefinitionMap(map);

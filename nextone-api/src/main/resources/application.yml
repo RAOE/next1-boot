@@ -17,7 +17,6 @@ spring:
     prefix: classpath:/templates/thymeleaf/
     servlet:
       content-type: text/html; charset=utf-8
-    enabled: true
   # 资源信息
   messages:
     # 国际化资源文件路径

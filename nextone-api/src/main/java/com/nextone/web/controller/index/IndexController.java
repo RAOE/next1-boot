@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("")
 public class IndexController {
-
     /**
      * 首页
      *
@@ -42,7 +41,6 @@ public class IndexController {
         return new ModelAndView("/welcome");
 
     }
-
     /**
      * 登陆页面
      *
@@ -62,10 +60,22 @@ public class IndexController {
      * @param request
      */
     @SysLog
-    @RequestMapping("/imageCode.do")
+    @RequestMapping("/imageCode")
     public void sendImageCode(HttpServletResponse response, HttpServletRequest request) {
         ImageCodeUtils.sendImageCode(request.getSession(), response);
     }
+
+    /**
+     * 错误页面
+     * @return
+     */
+    @SysLog
+    @ApiOperation(value = "错误页面")
+    @GetMapping("/error")
+    public ModelAndView error() {
+        return new ModelAndView("/500");
+    }
+
 
 
 }

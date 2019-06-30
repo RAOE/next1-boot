@@ -1,9 +1,14 @@
 package com.nextone.web.aop;
+
+import com.nextone.pojo.AdminUser;
 import com.nextone.utils.IpUtils;
 import com.nextone.utils.JsonUtils;
 import com.nextone.web.audit.AuditLogQueue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -13,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -31,12 +37,17 @@ public class LogAspect {
     private AuditLogQueue auditLogQueue;
 
     private static final Logger logger = LogManager.getLogger("用户操作日志");
+
     @Before("@annotation(com.nextone.web.annotation.SysLog)")
     public Object SysLog(JoinPoint joinPoint) throws Throwable {
         Object[] ob = joinPoint.getArgs();
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession();
+        AdminUser adminUser = (AdminUser) session.getAttribute("adminUser");
         String username = null;
+        if (adminUser != null) {
+            username = adminUser.getUsername();
+        }
         String ip = IpUtils.getIpAddr(request);
 
         Object[] args = joinPoint.getArgs();
@@ -52,7 +63,7 @@ public class LogAspect {
             }
         }
         //控制台输出
-         logger.info("用户id：{}，方法签名：{}，方法参数：{} ip地址:{}", username, joinPoint.getSignature(), JsonUtils.toJson(args), ip);
+        logger.info("用户id：{}，方法签名：{}，方法参数：{} ip地址:{}", username, joinPoint.getSignature(), JsonUtils.toJson(args), ip);
         //*========数据库日志=========*//
 //        AuditLog log = new AuditLog();
 //        log.setId(Sid.nextShort());
