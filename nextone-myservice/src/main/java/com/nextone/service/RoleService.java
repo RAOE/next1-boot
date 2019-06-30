@@ -2,7 +2,6 @@ package com.nextone.service;
 
 import com.nextone.pojo.AdminUser;
 import com.nextone.pojo.Role;
-import com.nextone.utils.MyMapper;
 import com.nextone.utils.PageResult;
 
 import java.util.List;

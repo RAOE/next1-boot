@@ -24,3 +24,16 @@ function Format(datetime, fmt) {
             fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
+//校验是否是数字
+function validate(obj) {
+    var reg = new RegExp("^[0-9]*$");
+    if (!reg.test(obj.value)) {
+        alert("请输入数字!");
+        return false;
+    }
+    if (!/^[0-9]*$/.test(obj.value)) {
+        alert("请输入数字!");
+        return false;
+    }
+    return true;
+}

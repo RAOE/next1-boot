@@ -1,7 +1,7 @@
 package com.nextone.mapper;
 
 import com.nextone.pojo.Permission;
-import com.nextone.utils.MyMapper;
+import tk.mybatis.mapper.common.Mapper;
 
-public interface PermissionMapper extends MyMapper<Permission> {
+public interface PermissionMapper extends Mapper<Permission> {
 }

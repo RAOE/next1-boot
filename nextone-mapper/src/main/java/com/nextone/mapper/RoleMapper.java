@@ -1,7 +1,7 @@
 package com.nextone.mapper;
 
 import com.nextone.pojo.Role;
-import com.nextone.utils.MyMapper;
+import tk.mybatis.mapper.common.Mapper;
 
-public interface RoleMapper extends MyMapper<Role>{
+public interface RoleMapper extends Mapper<Role> {
 }

@@ -20,6 +20,8 @@ public class AdminUser {
     private Integer isEnable;
     @Column(name = "last_login")
     private Date lastLogin;
+    private String phone;
+    private String nickname;
     public Long getId() {
         return id;
     }
@@ -69,6 +71,22 @@ public class AdminUser {
         this.lastLogin = lastLogin;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     @Override
     public String toString() {
         return "AdminUser{" +
@@ -78,6 +96,8 @@ public class AdminUser {
                 ", salt='" + salt + '\'' +
                 ", isEnable=" + isEnable +
                 ", lastLogin=" + lastLogin +
+                ", phone='" + phone + '\'' +
+                ", nickname='" + nickname + '\'' +
                 '}';
     }
 }
