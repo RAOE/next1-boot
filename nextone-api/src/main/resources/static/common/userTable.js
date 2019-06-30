@@ -16,16 +16,18 @@ var returnAllCount = function () {
         }, 500);
     }
 }
+
 //点击按钮调用搜索
 function queryAll() {
     $('#allBlog').bootstrapTable('refresh');
 
 }
+
 // 初始化表格数据
 var selectAll = function () {
     $('#allBlog').bootstrapTable({
         method: 'post',
-        url: "../permission/queryAll",
+        url: "../adminUser/queryAll",
         dataType: "json",
         striped: false, // 使表格带有条纹
         pagination: true, // 在表格底部显示分页工具栏
@@ -76,47 +78,70 @@ var selectAll = function () {
                 valign: 'middle',
             },
             {
-                title: '序号',
+                title: '用户ID',
                 align: 'center',
                 field: 'orgId',
                 valign: 'middle',
                 width: '6%',
                 formatter: function (value, row, index) {
                     var index1 = index + 1;
-                    var id = '<span title="ID:' + index1 + '">' + index1 + '</span>';
+                    var id = '<span title="ID:' + index1 + '">' + row.id + '</span>';
                     return id;
                 }
             },
             {
-                title: '权限路径',
-                field: 'path',
+                title: '登陆名称',
+                field: 'username',
                 align: 'center',
                 width: '6%',
                 formatter: function (value, row, index) {
-                    console.log(row.path);
-                    var path = '<span >' + row.path + '</span>';
-                    return path;
+                    var username = '<span >' + row.username + '</span>';
+                    return username;
                 }
             },
             {
-                title: '权限描述',
-                field: 'description',
+                title: '用户名称',
+                field: 'nickname',
                 align: 'center',
                 width: '6%',
                 formatter: function (value, row, index) {
-                    console.log(row.description);
-                    var desc = '<span>' + row.description + '</span>';
-                    return desc;
+                    var nickname = '<span>' + row.nickname + '</span>';
+                    return nickname;
+                }
+            },
+            {
+                title: '手机',
+                field: 'phone',
+                align: 'center',
+                width: '6%',
+                formatter: function (value, row, index) {
+                    var phone = '<span>' + row.phone + '</span>';
+                    return phone;
                 }
             },
             {
                 title: '状态',
-                field: 'orgStatus',
+                field: 'status',
                 align: 'center',
-                width: '5%',
+                width: '6%',
                 formatter: function (value, row, index) {
-                    var status='<span class="badge badge-primary" >' + '启用' + '</span>';
+                    var status = row.isEnable;
+                    if (status == 0) {
+                         status='<span class="badge badge-primary" >' + '启用' + '</span>';
+                    } else if (status == 1) {
+                        status='<span class="badge badge-danger" >' + '禁用' + '</span>';
+                    }
                     return status;
+                }
+            },
+            {
+                title: '创建时间',
+                field: 'description',
+                align: 'center',
+                width: '6%',
+                formatter: function (value, row, index) {
+                    var createTime = '<span title="ID:' + row.id + '">' + Format(row.lastLogin, "yyyy-MM-dd hh:mm:ss") + '</span>';
+                    return createTime;
                 }
             }, {
                 title: '操作',
@@ -124,9 +149,9 @@ var selectAll = function () {
                 align: 'center',
                 width: '15%',
                 formatter: function (value, row, index) {
-                     var a = '<button class="  btn btn-info btn-xs"   onclick="editById(\'' + row.orgId + '\')""><i class="fa fa-edit" ></i>编辑</button> ';
-                     var b = '<a  class="  btn btn-danger btn-xs"  onclick="deleteOrg(\'' + row.orgId + '\')"><i class="fa fa-remove" ></i>删除</a> ';
-                    return a+b;
+                    var a = '<button class="  btn btn-info btn-xs"   onclick="editById(\'' + row.orgId + '\')""><i class="fa fa-edit" ></i>编辑</button> ';
+                    var b = '<a  class="  btn btn-danger btn-xs"  onclick="deleteOrg(\'' + row.orgId + '\')"><i class="fa fa-remove" ></i>删除</a> ';
+                    return a + b;
                 }
             },
 

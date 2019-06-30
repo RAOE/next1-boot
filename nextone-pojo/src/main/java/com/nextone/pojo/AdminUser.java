@@ -22,6 +22,17 @@ public class AdminUser {
     private Date lastLogin;
     private String phone;
     private String nickname;
+    @Column(name="createTime")
+    private String createTime;
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
     public Long getId() {
         return id;
     }
@@ -98,6 +109,7 @@ public class AdminUser {
                 ", lastLogin=" + lastLogin +
                 ", phone='" + phone + '\'' +
                 ", nickname='" + nickname + '\'' +
+                ", createTime='" + createTime + '\'' +
                 '}';
     }
 }

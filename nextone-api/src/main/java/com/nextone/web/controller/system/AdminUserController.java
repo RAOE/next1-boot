@@ -22,21 +22,22 @@ import java.util.List;
 public class AdminUserController {
     @Autowired
     private AdminUserService adminUserService;
-
     @SysLog
-    @ResponseBody
-    @ApiOperation(value = "查询所有用户的信息", notes = "查询所有用户的信息")
-    @GetMapping("/queryAll")
-    public JsonResult queryAll() {
-        List<AdminUser> list = adminUserService.queryAll();
-        for (AdminUser user : list) {
-            System.out.println(user);
-        }
-        return JsonResult.ok(list);
+    @RequestMapping("/list")
+    @ApiOperation(value = "跳转用户管理页面", notes = "跳转用户管理页面")
+    public ModelAndView list() {
+        return new ModelAndView("/system/admin/list");
     }
     @SysLog
     @ResponseBody
-    @ApiOperation(value = "查询单个用户的详细信息", notes = "根据url的id来查询用户信息")
+    @ApiOperation(value = "查询所有用户的信息", notes = "查询所有用户的信息")
+    @RequestMapping("/queryAll")
+    public JsonResult queryAll(Integer page,Integer pageSize,String keyword) {
+        return JsonResult.ok(adminUserService.queryAll(page,pageSize,null));
+    }
+    @SysLog
+    @ResponseBody
+    @ApiOperation(value = "查询单个用户的详细信息", notes = "根据id来查询用户信息")
     @GetMapping("/selectOne/{id}")
     public JsonResult selectOne(@PathVariable("id") Long id) {
         return JsonResult.ok(adminUserService.selectOne(id));

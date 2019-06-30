@@ -1,14 +1,19 @@
 package com.nextone.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.nextone.mapper.AdminUserMapper;
 import com.nextone.pojo.AdminUser;
+import com.nextone.pojo.Permission;
 import com.nextone.service.AdminUserService;
 import com.nextone.utils.CommonUtils;
+import com.nextone.utils.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 徐塬峰
@@ -25,6 +30,19 @@ public class AdminUserServiceImpl implements AdminUserService {
     @Override
     public List<AdminUser> queryAll() {
         return adminUserMapper.selectAll();
+    }
+
+    @Override
+    public PageResult queryAll(Integer page, Integer pageSize, Map map) {
+        PageHelper.startPage(page, pageSize);
+        List<AdminUser> list = adminUserMapper.selectAll();
+        PageInfo<AdminUser> pageList = new PageInfo<AdminUser>(list);
+        PageResult pageResult = new PageResult();
+        pageResult.setPage(page);
+        pageResult.setRecords(pageList.getPages());
+        pageResult.setRows(list);
+        pageResult.setRecords(pageList.getTotal());
+        return pageResult;
     }
 
     @Override
@@ -52,6 +70,6 @@ public class AdminUserServiceImpl implements AdminUserService {
     public AdminUser findByUserName(String currentUsername) {
 
 
-        return  adminUserMapper.findByUserName(currentUsername);
+        return adminUserMapper.findByUserName(currentUsername);
     }
 }
