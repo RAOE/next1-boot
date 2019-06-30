@@ -5,7 +5,9 @@ import com.nextone.service.AdminUserService;
 import com.nextone.utils.ImageCodeUtils;
 import com.nextone.utils.JsonResult;
 import com.nextone.web.annotation.SysLog;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.Model;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
@@ -18,6 +20,12 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+/**
+ * @author 徐塬峰
+ * @email 986771570@qq.com
+ * @date 2019-06-08
+ * @description
+ **/
 @RequestMapping("/adminUser")
 @Controller
 public class AdminUserController {
@@ -47,6 +55,21 @@ public class AdminUserController {
         return JsonResult.ok(adminUserService.selectOne(id));
     }
 
+
+    @SysLog
+    @ResponseBody
+    @ApiOperation(value = "修改密码", notes = "修改密码")
+    @RequestMapping("/changePassword")
+    public ModelAndView changePassword() {
+        return new ModelAndView("/system/admin/changePassword");
+    }
+
+    @SysLog
+    @ApiOperation(value = "个人资料展示")
+    @RequestMapping("/profile")
+    public ModelAndView profile() {
+        return new ModelAndView("/index/profile");
+    }
 
     @SysLog
     @ResponseBody

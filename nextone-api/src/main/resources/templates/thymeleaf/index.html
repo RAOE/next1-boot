@@ -28,18 +28,22 @@
             <ul class="nav" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
-                        <span><img alt="image" class="img-circle" style="width: 50px;height: 50px;"
-                                   src="../static/img/profile_small.jpg"/></span>
-
+                        <span><img alt="image" class="img-circle" src="../static/img/profile_small.jpg" /></span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">admin</strong></span>
-
-                                    <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
-                        <a href="@{logout}" style="padding-left:5px;"><i
-                                class="fa fa-sign-out text-danger"></i> 注销</a>
+                               <span class="block m-t-xs"><strong class="font-bold">xuyuanfeng</strong></span>
+                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
                                 </span>
                         </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a class="J_menuItem" href="/adminUser/profile">个人资料</a>
+                            </li>
+                            <li><a class="J_menuItem" href="/adminUser/changePassword">修改密码</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="/logout">安全退出</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="logo-element">Next
                     </div>
@@ -130,12 +134,6 @@
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i
                         class="fa fa-bars"></i> </a>
-<!--                   <form role="search" class="navbar-form-custom" method="post">-->
-<!--                        <div class="form-group">-->
-<!--                            <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search"-->
-<!--                                   id="top-search">-->
-<!--                        </div>-->
-<!--                    </form>-->
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown hidden-xs">
@@ -292,7 +290,5 @@
 <script type="text/javascript" src="../static/js/contabs.min.js"></script>
 <script src="../static/js/plugins/pace/pace.min.js"></script>
 </body>
-
-
 <!-- Mirrored from www.zi-han.net/theme/hplus/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:17:11 GMT -->
 </html>
