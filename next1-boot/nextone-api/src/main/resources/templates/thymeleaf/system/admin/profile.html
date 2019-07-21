@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row animated fadeInRight">
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>个人信息</h5>
+                    <div class="ibox-tools">
+
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="profile.html#">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="javascript:edit()">修改信息</a></li>
+                            <li><a href="javascript:resetPwd()">修改密码</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <img alt="image" class="img-circle m-t-xs img-responsive" src="../static/img/profile.jpg">
+                            <div class="m-t-xs font-bold">127.0.0.1</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3><strong>admin</strong></h3>
+                        <p><i class="fa fa-user"></i> xuyuanfeng / 管理员
+                        <p><i class="fa fa-phone"></i> 15888888888</p>
+                        <p><i class="fa fa-group"></i> 研发部门 </p>
+                        <p><i class="fa fa-transgender"></i> 性别：男</p>
+                        <p><i class="fa fa-envelope-o"></i> 986771570@qq.com</p>
+                        <p><i class="fa fa-calendar"></i> 2018-03-16 11:33:00</p>
+                    </div>
+                    <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<head th:include="include :: footer"></head>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html><html>
+<head th:include="include :: header"></head>
+<body>
+<div class="wrapper wrapper-content">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>系统日志信息</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+                </a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+                    class="fa fa-wrench"></i>
+                 </a>
+                <a class="close-link"> <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="row row-lg">
+                <div class="example">
+                    <table id="allBlog" data-mobile-responsive="true">
+                    </table>
+                    <div id="toolbar">
+                        <a class="btn btn-danger" id="remove">
+                            <i class="fa fa-plus"></i> 删除
+                        </a>
+                        <a class="btn btn-warning" id="clear">
+                            <i class="fa fa-trash"></i> 清空
+                        </a>
+                        <a class="btn btn-primary" id="export">
+                            <i class="fa fa-download"></i> 导出
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include :: footer"></div>
+<script src="../static/common/syslogTable.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        selectAll();
+    });
+</script>
+</body>
+</html>
