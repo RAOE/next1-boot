@@ -49,7 +49,10 @@ mybatis:
 # 日志配置
 logging:
   level:com.nextone: debug
-
+mapper:
+  mappers:  com.nextone.framework.MyMapper
+  not-empty: false
+  identity:  MYSQL
 
 
 
