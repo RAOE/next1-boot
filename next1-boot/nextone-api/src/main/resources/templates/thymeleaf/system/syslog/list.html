@@ -36,7 +36,7 @@
     </div>
 </div>
 <div th:include="include :: footer"></div>
-<script src="../static/common/syslogTable.js"></script>
+<script th:src="@{/static/common/syslogTable.js}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         selectAll();

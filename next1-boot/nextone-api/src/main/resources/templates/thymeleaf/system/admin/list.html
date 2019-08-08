@@ -40,7 +40,7 @@
     </div>
 </div>
 <div th:include="include :: footer"></div>
-<script src="../static/common/userTable.js"></script>
+<script th:src="@{/static/common/userTable.js}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         selectAll();
