@@ -1,9 +1,9 @@
 server:
-  port: 80
+  port: 8080
   tomcat:
     uri-encoding: utf-8
     #tomcat 默认的线程数量默认为 200 可自定义
-    max-threads: 500
+    max-threads: 200
     #tomcat 启动最小线程数量 默认为10 可自定义
     min-spare-threads: 15
 # Spring配置

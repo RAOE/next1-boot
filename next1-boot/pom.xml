@@ -44,6 +44,7 @@
         <jaxen.version>1.1.6</jaxen.version>
         <fastjson.version>1.2.58</fastjson.version>
         <lombok.version>1.18.6</lombok.version>
+        <jwt.version>3.10.0</jwt.version>
     </properties>
 
     <modules>
@@ -72,7 +73,14 @@
                 <scope>import</scope>
             </dependency>
         </dependencies>
-    </dependencyManagement>    <dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-quartz</artifactId>
