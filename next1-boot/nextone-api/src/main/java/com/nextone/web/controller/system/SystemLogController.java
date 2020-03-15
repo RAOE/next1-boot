@@ -1,6 +1,6 @@
 package com.nextone.web.controller.system;
 
-import com.nextone.web.annotation.SysLog;
+import com.nextone.framework.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

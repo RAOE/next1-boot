@@ -1,7 +1,7 @@
 package com.nextone.framework.web;
 
 import com.nextone.framework.service.BaseService;
-import com.nextone.web.annotation.SysLog;
+import com.nextone.framework.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;

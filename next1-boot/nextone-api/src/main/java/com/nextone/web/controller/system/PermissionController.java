@@ -2,7 +2,7 @@ package com.nextone.web.controller.system;
 
 import com.nextone.service.PermissionService;
 import com.nextone.utils.JsonResult;
-import com.nextone.web.annotation.SysLog;
+import com.nextone.framework.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

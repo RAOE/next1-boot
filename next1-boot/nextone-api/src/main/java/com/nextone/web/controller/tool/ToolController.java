@@ -1,6 +1,6 @@
 package com.nextone.web.controller.tool;
 
-import com.nextone.web.annotation.SysLog;
+import com.nextone.framework.annotation.SysLog;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;

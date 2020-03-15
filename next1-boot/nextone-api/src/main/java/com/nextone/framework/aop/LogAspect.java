@@ -1,18 +1,13 @@
-package com.nextone.web.aop;
+package com.nextone.framework.aop;
 
 import com.nextone.pojo.AdminUser;
 import com.nextone.utils.IpUtils;
 import com.nextone.utils.JsonUtils;
-import com.nextone.web.audit.AuditLogQueue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -23,7 +18,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
 
 /**
  * @author 徐塬峰 2019/3/31
@@ -33,12 +27,9 @@ import java.util.Date;
 @Configuration
 public class LogAspect {
 
-    @Autowired
-    private AuditLogQueue auditLogQueue;
-
     private static final Logger logger = LogManager.getLogger("用户操作日志");
 
-    @Before("@annotation(com.nextone.web.annotation.SysLog)")
+    @Before("@annotation(com.nextone.framework.annotation.SysLog)")
     public Object SysLog(JoinPoint joinPoint) throws Throwable {
         Object[] ob = joinPoint.getArgs();
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -64,20 +55,6 @@ public class LogAspect {
         }
         //控制台输出
         logger.info("用户id：{}，方法签名：{}，方法参数：{} ip地址:{}", username, joinPoint.getSignature(), JsonUtils.toJson(args), ip);
-        //*========数据库日志=========*//
-//        AuditLog log = new AuditLog();
-//        log.setId(Sid.nextShort());
-//        log.setDescription(joinPoint.getSignature().toString());
-//        log.setMethod(joinPoint.getSignature().toString());
-//        log.setParams(JsonUtils.toJson(args));
-//        log.setType("0");
-//        log.setRequestIp(ip);
-//        log.setExceptionCode( null);
-//        log.setExceptionDetail( null);
-//        log.setCreateDate(new Date());
-        //保存数据库
-//        auditLogQueue.add(log);
-        //拿到请求中的所有参数args
         return ob;
     }
 

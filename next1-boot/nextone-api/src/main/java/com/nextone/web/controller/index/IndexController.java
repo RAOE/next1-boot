@@ -1,7 +1,7 @@
 package com.nextone.web.controller.index;
 
 import com.nextone.utils.ImageCodeUtils;
-import com.nextone.web.annotation.SysLog;
+import com.nextone.framework.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

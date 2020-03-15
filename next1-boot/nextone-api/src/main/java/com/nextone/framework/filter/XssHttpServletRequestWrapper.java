@@ -1,4 +1,4 @@
-package com.nextone.web.filter;
+package com.nextone.framework.filter;
 
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;

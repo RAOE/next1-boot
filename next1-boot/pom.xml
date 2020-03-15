@@ -14,7 +14,6 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>nextone</name>
-
     <!--定义项目相关的版本号-->
     <properties>
         <springboot.version>2.1.4.RELEASE</springboot.version>
@@ -45,7 +44,6 @@
         <fastjson.version>1.2.58</fastjson.version>
         <lombok.version>1.18.6</lombok.version>
     </properties>
-
     <modules>
         <!--提供相关的api-->
         <module>nextone-api</module>
@@ -60,7 +58,6 @@
         <!--提供服务-->
         <module>nextone-myservice</module>
     </modules>
-
     <!--springboot版本号-->
     <dependencyManagement>
         <dependencies>

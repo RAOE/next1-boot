@@ -1,4 +1,4 @@
-package com.nextone.web.config;
+package com.nextone.framework.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

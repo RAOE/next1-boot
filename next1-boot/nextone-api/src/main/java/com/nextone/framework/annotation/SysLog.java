@@ -1,4 +1,4 @@
-package com.nextone.web.annotation;
+package com.nextone.framework.annotation;
 
 import java.lang.annotation.*;
 

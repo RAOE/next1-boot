@@ -4,10 +4,8 @@ import com.nextone.pojo.AdminUser;
 import com.nextone.service.AdminUserService;
 import com.nextone.utils.ImageCodeUtils;
 import com.nextone.utils.JsonResult;
-import com.nextone.web.annotation.SysLog;
-import io.swagger.annotations.Api;
+import com.nextone.framework.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.Model;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * @author 徐塬峰
