@@ -1,15 +1,20 @@
 package com.nextone.web.controller.index;
 
+import com.nextone.pojo.SysMenu;
+import com.nextone.service.SystemMenuService;
 import com.nextone.utils.ImageCodeUtils;
 import com.nextone.framework.annotation.SysLog;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * 首页的配置
@@ -17,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("")
 public class IndexController {
+    @Autowired
+    private SystemMenuService menuService;
     /**
      * 首页
      *
@@ -24,9 +31,12 @@ public class IndexController {
      */
     @SysLog
     @ApiOperation(value = "跳转到首页")
-    @GetMapping("/index")
-    public ModelAndView index() {
-        return new ModelAndView("/index");
+    @GetMapping("/")
+    public String index(ModelMap modelMap) {
+        List<SysMenu> menus = menuService.selectAllMenus();
+        menus.forEach(System.out::println);
+        modelMap.put("menus", menus);
+        return "index";
     }
 
     /**

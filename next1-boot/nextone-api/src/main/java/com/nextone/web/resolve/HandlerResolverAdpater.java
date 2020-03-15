@@ -1,4 +1,4 @@
-package com.nextone.framework.resolve;
+package com.nextone.web.resolve;
 import com.nextone.utils.JsonUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

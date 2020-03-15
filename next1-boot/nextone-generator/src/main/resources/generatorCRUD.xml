@@ -20,11 +20,23 @@
         <controller>com.nextone.controller</controller>
         <mapper>com.nextone.mapper</mapper>
     </generatePath>
-    <!-- 写做测试 -->
+
     <table>
         <!-- 指定table数据库的名称，根据table表来生产实体类 -->
-        <tableName>t_user</tableName>
+        <tableName>article</tableName>
         <!-- 实体类的名称 -->
-        <modelName>User</modelName>
+        <modelName>Article</modelName>
+    </table>
+    <table>
+        <!-- 指定table数据库的名称，根据table表来生产实体类 -->
+        <tableName>project</tableName>
+        <!-- 实体类的名称 -->
+        <modelName>Project</modelName>
+    </table>
+    <table>
+        <!-- 指定table数据库的名称，根据table表来生产实体类 -->
+        <tableName>user_sign</tableName>
+        <!-- 实体类的名称 -->
+        <modelName>UserSign</modelName>
     </table>
 </generatorConfiguration>

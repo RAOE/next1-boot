@@ -1,4 +1,4 @@
-package com.nextone.framework.swagger;
+package com.nextone.web.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

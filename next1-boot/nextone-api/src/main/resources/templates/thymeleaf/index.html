@@ -1,51 +1,40 @@
 <!DOCTYPE html>
-<html>
-<!-- Mirrored from www.zi-han.net/theme/hplus/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:16:41 GMT -->
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <title>nextone后台管理系统</title>
-    <meta name="keywords" content="nextone后台管理系统">
-    <meta name="description" content="nextone后台管理系统">
+    <title>后台管理系统</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
     <link rel="shortcut icon" href="favicon.ico">
     <link th:href="@{/static/css/bootstrap.min14ed.css}" rel="stylesheet">
-    <link tH:href="@{/static/css/font-awesome.min93e3.css}" rel="stylesheet">
-    <!--<link href="css/animate.min.css" rel="stylesheet">-->
+    <link th:href="@{/static/css/font-awesome.min93e3.css}" rel="stylesheet">
+    <link th:href="@{/static/css/animate.min.css}" css rel="stylesheet">
     <link th:href="@{/static/css/style.min862f.css}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
 </head>
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
 <div id="wrapper">
     <!--左侧导航开始-->
     <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="nav-close"><i class="fa fa-times-circle"></i>
-        </div>
         <div class="sidebar-collapse">
             <ul class="nav" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
-                        <span><img alt="image" class="img-circle" src="../static/img/profile_small.jpg" /></span>
+                        <span><img alt="image" src="/static/img/a1.jpg" style="width:75px;height:75px;"
+                                   class="img-container"/></span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">xuyuanfeng</strong></span>
-                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
-                                </span>
+                            <span class="block m-t-xs"><strong class="font-bold">admin</strong></span>
+                            <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
                         </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="J_menuItem" href="/adminUser/profile">个人资料</a>
-                            </li>
-                            <li><a class="J_menuItem" href="/adminUser/changePassword">修改密码</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="/logout">安全退出</a>
-                            </li>
-                        </ul>
                     </div>
-                    <div class="logo-element">Next
+                    <div class="logo-element"><span>温肚</span>
                     </div>
                 </li>
                 <li class="active">
@@ -56,74 +45,30 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li class="active">
-                            <a class="J_menuItem" href="/welcome" data-index="1">了解nextone后台框架</a>
+                            <a class="J_menuItem" href="/welcome" data-index="1">了解<span>温肚后台管理</span></a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li th:each="menu : ${menus}">
                     <a href="#">
-                        <i class="fa fa fa-gear"></i>
-                        <span class="nav-label">系统设置</span>
+                        <i class="fa fa fa-bar-chart-o" th:class="${menu.icon}"></i>
+                        <span class="nav-label" th:text="${menu.menuName}">一级菜单</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="/adminUser/list">用户管理</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/role/list">角色管理</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/permission/list">菜单管理</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/systemlog/list">日志管理</a>
-                        </li>
-<!--                        <li>-->
-<!--                            <a class="J_menuItem" href="#">参数设置</a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a class="J_menuItem" href="#">Sparkline</a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a class="J_menuItem" href="#">图表组合</a>-->
-<!--                        </li>-->
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-video-camera"></i>
-                        <span class="nav-label">系统监控</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="#">在线用户</a>
-                        </li>
-<!--                        <li>-->
-<!--                            <a class="J_menuItem" href="#">定时任务</a>-->
-<!--                        </li>-->
-                        <li>
-                            <a class="J_menuItem" href="/monitor/server">服务监控</a>
-                        </li>
-<!--                        <li>-->
-<!--                            <a class="J_menuItem" href="#">数据监控</a>-->
-<!--                        </li>-->
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bars"></i> <span class="nav-label">系统工具 </span><span
-                            class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a class="J_menuItem" href="../tool/build">表单构建器</a>
-                        </li>
-<!--                        <li><a class="J_menuItem" href="#">代码生成工具</a>-->
-<!--                        </li>-->
-                        <li><a class="J_menuItem" href="../swagger-ui.html">系统接口</a>
+                        <li th:each="cmenu : ${menu.children}">
+                            <a th:if="${#lists.isEmpty(cmenu.children)}" class="J_menuItem" th:utext="${cmenu.menuName}"
+                               th:href="@{${cmenu.url}}">二级菜单</a>
+                            <a th:if="${not #lists.isEmpty(cmenu.children)}" href="#">[[${cmenu.menuName}]]<span
+                                    class="fa arrow"></span></a>
+                            <ul th:if="${not #lists.isEmpty(cmenu.children)}" class="nav nav-third-level">
+                                <li th:each="emenu : ${cmenu.children}"><a class="J_menuItem"
+                                                                           th:text="${emenu.menuName}"
+                                                                           th:href="@{${emenu.url}}">三级菜单</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
-
             </ul>
         </div>
     </nav>
@@ -136,11 +81,13 @@
                         class="fa fa-bars"></i> </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
+                    <li><a title="全屏显示" id="fullScreen"><i class="fa fa-arrows-alt"></i> 全屏显示</a></li>
                     <li class="dropdown hidden-xs">
                         <a class="right-sidebar-toggle" aria-expanded="false">
                             <i class="fa fa-tasks"></i> 主题
                         </a>
                     </li>
+                    <li><a title="退出" id="logout"><i class="fa fa-sign-out"></i> 退出</a></li>
                 </ul>
             </nav>
         </div>
@@ -155,7 +102,7 @@
             <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
             </button>
             <div class="btn-group roll-nav roll-right">
-                <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+                <button class="dropdown J_tabClose" data-toggle="dropdown">页签操作<span class="caret"></span>
 
                 </button>
                 <ul role="menu" class="dropdown-menu dropdown-menu-right">
@@ -168,14 +115,15 @@
                     </li>
                 </ul>
             </div>
-            <a href="./logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            <!--            <a href="#" id="logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>-->
+            <a href="#" id="refresh" class="roll-nav roll-right J_tabExit"><i class="fa fa-refresh"></i> 刷新</a>
         </div>
         <div class="row J_mainContent" id="content-main">
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/welcome"
-                    frameborder="0" data-id="index_v1.html" seamless></iframe>
+                    frameborder="0" data-id="welcome" seamless></iframe>
         </div>
         <div class="footer">
-            <div class="pull-right">&copy; 2019<a href="#" target="_blank">xuyuanfeng blog</a>
+            <div class="pull-right">&copy; 2020<a href="#" target="_blank"></a>
             </div>
         </div>
     </div>
@@ -183,24 +131,13 @@
     <!--右侧边栏开始-->
     <div id="right-sidebar">
         <div class="sidebar-container">
-
             <ul class="nav nav-tabs navs-3">
-
                 <li class="active">
                     <a data-toggle="tab" href="#tab-1">
                         <i class="fa fa-gear"></i> 主题
                     </a>
                 </li>
-                <li class=""><a data-toggle="tab" href="#tab-2">
-                    通知
-                </a>
-                </li>
-                <li><a data-toggle="tab" href="#tab-3">
-                    项目进度
-                </a>
-                </li>
             </ul>
-
             <div class="tab-content">
                 <div id="tab-1" class="tab-pane active">
                     <div class="sidebar-title">
@@ -237,10 +174,8 @@
                             </div>
                         </div>
                         <div class="setings-item">
-                                <span>
-                        固定宽度
-                    </span>
-
+                            固定宽度
+                            </span>
                             <div class="switch">
                                 <div class="onoffswitch">
                                     <input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox"
@@ -281,14 +216,26 @@
         </div>
     </div>
 </div>
-<script th:src="@{/static/js/jquery.min.js?v=2.1.4}"></script>
-<script th:src="@{/static/js/bootstrap.min.js?v=3.3.6}"></script>
+<a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort() + #request.getContextPath()} + '/'"
+   id="contextPath"></a>
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
 <script th:src="@{/static/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
 <script th:src="@{/static/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
-<script th:src="@{/static/js/plugins/layer/layer.min.js}"></script>
-<script th:src="@{/static/js/hplus.min.js?v=4.1.0}"></script>
+<script th:src="@{/static/plugins/layer/layer.js}"></script>
+<script th:src="@{/static/js/hplus.min.js}"></script>
 <script th:src="@{/static/js/contabs.min.js}"></script>
-<script th:src="@{/static/js/plugins/pace/pace.min.js}"></script>
+<script th:inline="javascript"> var ctx = $('#contextPath').attr('href'); </script>
+<script th:src="@{/static/utils/xuan.js}"></script>
+<!--全屏--->
+<script th:src="@{/static/plugins/fullscreen/jquery.fullscreen.js}"></script>
+<script>
+    $(function () {
+        console.log("初始化页面颜色");
+        $("body").removeClass("skin-2");
+        $("body").removeClass("skin-3");
+        $("body").addClass("skin-1");
+    })
+</script>
 </body>
-<!-- Mirrored from www.zi-han.net/theme/hplus/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:17:11 GMT -->
 </html>
