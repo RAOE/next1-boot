@@ -41,7 +41,7 @@
         <freemarker.version>2.3.20</freemarker.version>
         <dom4j.version>1.6.1</dom4j.version>
         <jaxen.version>1.1.6</jaxen.version>
-        <fastjson.version>1.2.58</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <lombok.version>1.18.6</lombok.version>
     </properties>
     <modules>
