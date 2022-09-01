@@ -31,7 +31,7 @@
         <oshi.github.version>3.9.1</oshi.github.version>
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
         <httpclient.version>4.5.6</httpclient.version>
-        <jsoup.version>1.11.3</jsoup.version>
+        <jsoup.version>1.15.3</jsoup.version>
         <junit.version>4.12</junit.version>
         <commons.lang.version>3.9</commons.lang.version>
         <idworker.version>1.2</idworker.version>
